@@ -35,124 +35,71 @@ class milk2 {
 		  }
 		}
 		
-		//System.out.println(farthestPoint);
-		//System.out.println(Arrays.toString(timeline));
-		//System.out.println(timeline[70]);
+		StdOut.printf("Farthest Point: %d", farthestPoint);
 		
 		//longest milking time
-		boolean started = false;
-    int current = 0;
-    int max = 0;
-    int count = 0;
-    
-    for(int now : timeline) {
-    	if(now == 1) {
-    		if(started == false) { //beginning of chain
-    			started = true;
-    		}
-    		current++;
-    		//System.out.println("on element:"  + count);
-  			//System.out.println(current);
-    	}
-    	if(now == 0 || count == 1000000) { //now = 0
-    		if(started) {//end of chain
-    			started = false;
-    			max = Math.max(max, current);
-    			current = 0;
-    		}
-    	}
-    	count++;
-    }
-    
-    int maxMilking = max - 1;
-    
-    System.out.println(maxMilking);
-    //System.out.println(count);
-    
-    
-    //longest idle time
-		started = false;
-    current = 0;
-    max = 0;
-    count = 0;
-    
-    for(int now : timeline) {
-    	if(now == 0) {
-    	  if(count > farthestPoint) {
-    	    break;
-    	  }
-    		if(started == false) { //beginning of chain
-    			started = true;
-    		}
-  			current++;
-  			//System.out.println("on element:"  + count);
-  			//System.out.println(current);
-    	}
-    	if(now == 1) { //now = 0
-    		if(started) {//end of chain
-    			started = false;
-    			max = Math.max(max, current);
-    			current = 0;
-    		}
-    	}
-    	count++;
-    }
-    
-    int maxIdle = max; //counting system on prob text involves non-inclusive, simple subtraction
-    
-    System.out.println(maxIdle);
-    //System.out.println(count);
-    
-
-		//put 'em in order
-		// Arrays.sort(farmerTimes, new Comparator<int[]>() {
-  //     @Override
-  //     public int compare(int[] o1, int[] o2) {
-  //         return Integer.compare(o1[0], o2[0]);
-  //     }
-  //   });
-
-  //   //longest milking time
-  //   int max = 0;
+		// boolean started = false;
   //   int current = 0;
-  //   int start = 0;
-  //   boolean stillGoing = false;
-  //   for(int[] coord : farmerTimes) {
-  //     if(coord[1] == 1) {
-  //       if(stillGoing == false) {
-  //         stillGoing = true;
-  //         start = coord[0];
-  //       }
-  //       else{
-  //         current = coord[0] - start;
-  //       }
-  //       System.out.println(coord);
-  //     }
-  //     else {
-  //       if(current > max) {
-  //         max = current;
-  //       }
-  //       current = 0;
-  //       stillGoing = false;
-  //     }
+  //   int max = 0;
+  //   int count = 0;
+    
+  //   for(int now : timeline) {
+  //   	if(now == 1) {
+  //   		if(started == false) { //beginning of chain
+  //   			started = true;
+  //   		}
+  //   		current++;
+  //   		//System.out.println("on element:"  + count);
+  // 			//System.out.println(current);
+  //   	}
+  //   	if(now == 0 || count == 1000000) { //now = 0
+  //   		if(started) {//end of chain
+  //   			started = false;
+  //   			max = Math.max(max, current);
+  //   			current = 0;
+  //   		}
+  //   	}
+  //   	count++;
   //   }
-		
-		System.out.println(Arrays.deepToString(farmerTimes));
-		//System.out.println(max);
-		//int[][] farmerTimes = new int[n][2]; 
-		// for(int i = 0; i < n; i++) {
-		//   farmerTimes[i][0]= 1;
-		//   farmerTimes[i][1]= 2;
-		// }
-		
-		// int[] timeline = new int[1000000];
-		// for(int i = 0; i < timeline.length; i++) {
-		//   timeline[i] = i;
-		//   System.out.println(timeline[i]);
-		// }
-    //int i1 = Integer.parseInt(st.nextToken());    // first integer
-    // int i2 = Integer.parseInt(st.nextToken());    // second integer
-    out.println(maxMilking + " " + maxIdle);                           // output result
-    out.close();                                  // close the output file
+    
+  //   int maxMilking = max - 1;
+    
+  //   System.out.println(maxMilking);
+  //   //System.out.println(count);
+    
+    
+  //   //longest idle time
+		// started = false;
+  //   current = 0;
+  //   max = 0;
+  //   count = 0;
+    
+  //   for(int now : timeline) {
+  //   	if(now == 0) {
+  //   	  if(count > farthestPoint) {
+  //   	    break;
+  //   	  }
+  //   		if(started == false) { //beginning of chain
+  //   			started = true;
+  //   		}
+  // 			current++;
+  // 			//System.out.println("on element:"  + count);
+  // 			//System.out.println(current);
+  //   	}
+  //   	if(now == 1) { //now = 0
+  //   		if(started) {//end of chain
+  //   			started = false;
+  //   			max = Math.max(max, current);
+  //   			current = 0;
+  //   		}
+  //   	}
+  //   	count++;
+  //   }
+    
+  //   int maxIdle = max; //counting system on prob text involves non-inclusive, simple subtraction
+    
+    
+  //   out.println(maxMilking + " " + maxIdle);                           // output result
+  //   out.close();                                  // close the output file
   }
 }
