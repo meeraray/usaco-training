@@ -26,14 +26,20 @@ class milk2 {
 		
 		int[] timeline = new int[1000001];
 		int farthestPoint = 0;
+		int earliestPoint = 1000000;
 		for(int[] coord : farmerTimes){
 		  for(int i = coord[0]; i <= coord[1]; i++){
 		    timeline[i] = 1;
 		    if(coord[1] > farthestPoint) {
 		      farthestPoint = coord[1]; //determine farthest point for use in idle time
 		    }
+		    if(coord[0] < earliestPoint) {
+		      earliestPoint = coord[0]; //determine farthest point for use in idle time
+		    }
 		  }
 		}
+		
+		System.out.println(earliestPoint);
 		
 		//StdOut.printf("Farthest Point: %d", farthestPoint);
 		
@@ -79,7 +85,7 @@ class milk2 {
     	  if(count > farthestPoint) { 
     	    break;
     	  }
-	if(count < farthestPoint) { 
+	      if(count < earliestPoint) { 
     	    continue;
     	  }
     		if(started == false) { //beginning of chain
@@ -99,7 +105,7 @@ class milk2 {
     	count++;
     }
     
-    int maxIdle = max; //counting system on prob text involves non-inclusive, simple subtraction
+    int maxIdle = max + 1; //counting system on prob text involves non-inclusive, simple subtraction
     
     
     out.println(maxMilking + " " + maxIdle);                           // output result
