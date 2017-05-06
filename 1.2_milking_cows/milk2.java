@@ -37,7 +37,7 @@ class milk2 {
 		
 		//StdOut.printf("Farthest Point: %d", farthestPoint);
 		
-		longest milking time
+		//longest milking time
 		boolean started = false;
     int current = 0;
     int max = 0;
