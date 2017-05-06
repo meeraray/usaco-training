@@ -76,7 +76,7 @@ class milk2 {
     
     for(int now : timeline) {
     	if(now == 0) {
-    	  if(count > farthestPoint) {
+    	  if(count > farthestPoint || count < farthestPoint) { 
     	    break;
     	  }
     		if(started == false) { //beginning of chain
