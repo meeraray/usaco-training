@@ -1,0 +1,3 @@
+Complete search- aka brute force
+--easiest way
+--use only if there are < 2000000 possiblities
