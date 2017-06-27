@@ -1,0 +1,4 @@
+//90 rotation:
+//int rad = Math.toRadians(-90); 
+                // double xP = j * Math.cos(rad) + i * Math.sin(rad);
+                // double yP = j * Math.sin(rad) - i * Math.cos(rad);
