@@ -66,11 +66,12 @@ class transform {
                             transformedA[-1 * j + N - 1][-i + N - 1] = point;
                             break;
                         case 5:
-                            transformedA[-1 * i + N - 1][j] = point;
+                            transformedA[-1 * i + N - 1][j] = point; System.out.println("here");
                             break;
-                        case 6:
+                        case 6: 
                             transformedA[j][i] = point; break;  
                         case 7: 
+                            System.out.println("same-");
                             if(Arrays.deepEquals(original, transformed)) {
                                 System.out.println("same");
                                 out.println("6");
@@ -87,15 +88,24 @@ class transform {
             System.out.printf("\n");
             i++;
             } //inner (j) is x value, outer (i) is y value (negated)
-        
+            if(c == 4) {
+                System.out.println(Arrays.deepToString(transformedA));
+            }
            c++; 
         }
         System.out.println(Arrays.deepToString(transformedA));
         
         //cases #6 and #7 are already taken care of
         //c--;
-        out.println(Integer.toString(c));
-        out.close();
+        if(c <= 4) {
+            out.println(Integer.toString(c));
+            out.close();
+        }
+        if(c == 5 || c == 6 || c == 7) {
+            out.println("5");
+            out.close();
+        }
+        
     }
     
 
