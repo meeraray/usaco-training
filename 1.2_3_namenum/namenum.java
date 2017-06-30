@@ -1,6 +1,6 @@
 /*
 NAME: ronukra2
-LANG: java
+LANG: JAVA
 TASK: namenum
 */
 
@@ -9,10 +9,11 @@ import java.io.*;
 
 class namenum  {
     
-    private static int count = 10;
-    private static ArrayList<String> names;
-    
-    private static String[][] letters = new String[][]{
+
+     
+    public static void main(String[] args) throws IOException {
+        
+        String[][] letters = new String[][]{
         new String[] {},
         new String[] {}, //first three are empty, numbering starts at 2 for conveniences's sake
         new String[] {"A", "B", "C"}, 
@@ -23,9 +24,8 @@ class namenum  {
         new String[] {"P", "R", "S"}, 
         new String[] {"T", "U", "V"}, 
         new String[] {"W", "Y", "Z"}
-    };
-     
-    public static void main(String[] args) throws IOException {
+        };
+        
         BufferedReader f = new BufferedReader(new FileReader("namenum.in"));
         BufferedReader dict = new BufferedReader(new FileReader("dict.txt"));
         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("namenum.out")));
@@ -39,6 +39,7 @@ class namenum  {
             combs.add(letters[Character.getNumericValue(serial.charAt(i))]);
         }
         String[] first = combs.get(0);
+        int firstInd = Character.getNumericValue(serial.charAt(0));
       
         //print(combs);
         
@@ -73,9 +74,13 @@ class namenum  {
         //check if names are real, output them
         boolean none = true;
         while(name != null) {
+            if(firstInd != 9 && name.charAt(0) == letters[firstInd + 1][0].charAt(0)) {
+                break;
+            }
             if(name == null) {
                 break;
             }
+            //System.out.println(name);
             if(name.charAt(0) == first[0].charAt(0) || name.charAt(0) == first[1].charAt(0) || name.charAt(0) == first[2].charAt(0)) {
                 //System.out.println(name);
                 for(String realComb : realCombs) {
@@ -96,12 +101,12 @@ class namenum  {
         //print(rcombs);
     }
     
-    public static void print(ArrayList<String[]> list) {
-     Iterator<String[]> itr = list.iterator();
-         while(itr.hasNext()) {
-             //int[] now = itr.next();
-             System.out.println(Arrays.toString(itr.next()));
-         }
-   }
+//     public static void print(ArrayList<String[]> list) {
+//      Iterator<String[]> itr = list.iterator();
+//          while(itr.hasNext()) {
+//              //int[] now = itr.next();
+//              System.out.println(Arrays.toString(itr.next()));
+//          }
+//   }
    
 }
