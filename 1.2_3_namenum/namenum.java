@@ -6,11 +6,10 @@ TASK: namenum
 
 import java.util.*;
 import java.io.*;
+import java.lang.*;
 
 class namenum  {
     
-
-     
     public static void main(String[] args) throws IOException {
         
         String[][] letters = new String[][]{
@@ -40,10 +39,13 @@ class namenum  {
         }
         String[] first = combs.get(0);
         int firstInd = Character.getNumericValue(serial.charAt(0));
+        // if(length >= 2) {
+        //     secondInd = Character.getNumericValue(serial.charAt(1));
+        // }
       
         //print(combs);
         
-        //create list of possible names
+        //create list sof possible names
         while(combs.size() != 1) {
             String[] one = combs.get(0);             
             String[] two = combs.get(1); 
@@ -51,7 +53,9 @@ class namenum  {
             int j = 0;
             for(String oneS : one) {
                 for(String twoS : two) {
-                    newA[j] = oneS + twoS;
+                    StringBuilder s = new StringBuilder(oneS);
+                    s.append(twoS);
+                    newA[j] = s.toString();
                     j++;
                 }
             } 
@@ -77,18 +81,24 @@ class namenum  {
             if(firstInd != 9 && name.charAt(0) == letters[firstInd + 1][0].charAt(0)) {
                 break;
             }
+            
             if(name == null) {
                 break;
             }
             //System.out.println(name);
             if(name.charAt(0) == first[0].charAt(0) || name.charAt(0) == first[1].charAt(0) || name.charAt(0) == first[2].charAt(0)) {
+                // if(length >= 2 && name.charAt(1) == 1) {
+                    
+                // }
                 //System.out.println(name);
+                check:
                 for(String realComb : realCombs) {
                     //System.out.println(realComb);
                     //System.out.println(name);
                     if(realComb.equals(name)) {
                         none = false;
                         out.println(realComb);
+                        break check;
                     }
                 }
             }
@@ -101,12 +111,5 @@ class namenum  {
         //print(rcombs);
     }
     
-//     public static void print(ArrayList<String[]> list) {
-//      Iterator<String[]> itr = list.iterator();
-//          while(itr.hasNext()) {
-//              //int[] now = itr.next();
-//              System.out.println(Arrays.toString(itr.next()));
-//          }
-//   }
    
 }
